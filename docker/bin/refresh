@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Build and run project services.                                              #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+cd "${PROJECT_ROOT}"
+
+${COMPOSE[@]} down
+$SCRIPT_PATH/build
+${COMPOSE[@]} up -d
+$SCRIPT_PATH/composer install
+# Default to debug off since xdebug really slows down the container.
+$SCRIPT_PATH/debug-off
+
+cd "${WORKING_DIR}"

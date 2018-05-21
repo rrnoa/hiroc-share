@@ -1,0 +1,24 @@
+uuid: 1f37add7-ba01-4050-a878-00698e4b1490
+langcode: en
+status: true
+dependencies: {  }
+id: local
+label: local
+folder: profiles/custom/hiroc/config/environments/local
+module:
+  dblog: 0
+  field_ui: 0
+  views_ui: 0
+  devel: 0
+  devel_generate: 0
+  kint: 0
+theme: {  }
+blacklist:
+  - devel.settings
+  - devel.toolbar.settings
+  - shield.settings
+  - system.menu.devel
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

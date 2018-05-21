@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Restart project services.                                                    #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+cd "${PROJECT_ROOT}"
+
+${COMPOSE[@]} down
+
+if [ "$DOCKER_SYNC" != 0 ]; then
+  docker-sync stop
+  docker-sync clean
+  docker-sync start
+fi
+
+${COMPOSE[@]} up -d
+# Default to debug off since xdebug really slows down the container.
+$SCRIPT_PATH/debug-off
+
+cd "${WORKING_DIR}"

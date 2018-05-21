@@ -1,0 +1,10 @@
+uuid: 6f0011e7-5d3d-4617-a529-79b759921515
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hM0fsXFZ3oBzzCtK4f368fSsajo6s0nfU7kogPv7o8M
+id: legal
+label: Legal
+description: 'Hiroc Legal'
+locked: false

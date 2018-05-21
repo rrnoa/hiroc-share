@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Enter MySQL service.                                                         #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/get-mysql-container
+
+COMMAND="$@"
+if [ -z $COMMAND ]; then
+  COMMAND="mysql -u $DB_USERNAME --password=$DB_PASSWORD $DB_DATABASE"
+fi
+
+docker exec -it "${MYSQL_CONTAINER}" $COMMAND

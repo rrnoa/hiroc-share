@@ -1,0 +1,15 @@
+uuid: 8e666592-1535-4d06-9c95-f84fb2310712
+langcode: en
+status: true
+dependencies: {  }
+id: test
+label: test
+folder: profiles/custom/hiroc/config/environments/test
+module:
+  dblog: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

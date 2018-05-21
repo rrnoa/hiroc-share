@@ -1,0 +1,19 @@
+uuid: 4eaad82e-c37a-4b1f-87ba-4648e94cb97c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_name
+    - node.type.director
+id: node.director.field_profile_name
+field_name: field_profile_name
+entity_type: node
+bundle: director
+label: Profile
+description: 'Profile Name of the Director'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

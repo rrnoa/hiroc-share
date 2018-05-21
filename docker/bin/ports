@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Show project services ports.                                                 #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+cd "${PROJECT_ROOT}"
+
+# Get list of docker-compose services.
+function get_services() {
+  ${COMPOSE[@]} config --services
+  return $?
+}
+
+# Get ports from a docker-compose service name.
+function get_compose_ports() {
+  local SERVICE=$1
+  local CONTAINER="$(${COMPOSE[@]} ps $SERVICE 2> /dev/null | grep _$SERVICE_ | awk '{ print $1 }')"
+  docker port $CONTAINER
+}
+
+# Get ports from a container name.
+function get_container_ports() {
+  docker port $1
+}
+
+# List out ports for all docker-compose services.
+SERVICES="$(get_services)"
+for service in $SERVICES
+do
+  PORTS="$(get_compose_ports $service)"
+  echo "$service:"
+  echo $PORTS | sed -e 's/0.0.0.0:\([0-9]*\)[ ]*/local.hiroc.com:\1\'$'\n/g'
+done
+
+# List out nginx-proxy ports.
+echo "nginx-proxy:"
+PORTS="$(get_container_ports nginx-proxy)"
+echo $PORTS | sed -e 's/0.0.0.0:\([0-9]*\)[ ]*/local.hiroc.com:\1\'$'\n/g'
+
+cd "${WORKING_DIR}"

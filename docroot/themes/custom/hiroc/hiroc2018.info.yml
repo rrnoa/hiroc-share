@@ -1,0 +1,31 @@
+core: 8.x
+type: theme
+
+name: 'Hiroc'
+description: 'Base Theme Hiroc Site'
+package: 'Hiroc'
+base theme: bartik
+
+regions:
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  header: 'Header'
+  top_image_hero: 'Top Image Hero'
+  top_page_title: 'Top Page Title'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer_topbar_text: 'Footer Top Bar Text'
+  footer_topbar_button: 'Footer Top Bar Button'
+  footer_logo: 'Footer Logo'
+  footer_socialnet: 'Footer Socials Nets'
+  footer_contact_left: 'Footer Contact Left Col'
+  footer_contact_right: 'Footer Contact Right Col'
+  footer_menu: 'Footer Menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - hiroc2018/global-styling

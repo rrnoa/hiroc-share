@@ -1,0 +1,22 @@
+uuid: 3a2ae91d-bc94-430b-bfec-c9cdd6885d90
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hiroc2018
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: hiroc2018_breadcrumbs
+theme: hiroc2018
+region: navigation
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,39 @@
+name: HIROC profile
+type: profile
+description: 'Builds the HIROC website.'
+version: VERSION
+core: 8.x
+dependencies:
+  - admin_toolbar
+  - automated_cron
+  - block
+  - block_content
+  - breakpoint
+  - ckeditor
+  - config
+  - config_filter
+  - config_split
+  - config_update
+  - contextual
+  - datetime
+  - dynamic_page_cache
+  - editor
+  - file
+  - help
+  - image
+  - menu_link_content
+  - menu_ui
+  - node
+  - options
+  - page_cache
+  - path
+  - quickedit
+  - rdf
+  - shortcut
+  - taxonomy
+  - toolbar
+  - tour
+  - views
+themes:
+  - bartik
+  - seven

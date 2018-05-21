@@ -1,0 +1,18 @@
+#!/bin/bash
+##########################################################################
+# Script to restart nginx-proxy container.
+##########################################################################
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+
+# Stop/remove nginx-proxy
+if [ ! "$(docker ps | grep nginx-proxy)" ]; then
+  echo "Nginx Proxy not running."
+else
+  # We only need to stop since run-proxy will remove before starting.
+  echo "Stopping..."
+  docker stop nginx-proxy
+fi
+
+. $SCRIPT_PATH/run-proxy

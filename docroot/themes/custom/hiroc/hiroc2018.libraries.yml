@@ -1,0 +1,12 @@
+global-styling:
+  css:
+    theme:
+      css/bootstrap.css: {}
+      css/style.css: {}
+      font-awesome47/css/font-awesome.min.css: {}
+  js:
+    js/jquery-1.12.4.min.js: {}
+    js/bootstrap.js: {}
+    js/scroll.js: {}
+  dependencies:
+    - core/drupal

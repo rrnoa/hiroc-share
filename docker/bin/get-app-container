@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Enter app service.                                                           #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+app_container_exists() {
+  local PROJECT_ROOT="${1}"
+
+  echo "$(cd ${PROJECT_ROOT} && ${COMPOSE[@]} ps app 2> /dev/null | grep _app_ | awk '{ print $1 }')"
+}
+
+app_container_running() {
+  local CONTAINER="${1}"
+
+  echo "$(docker exec ${CONTAINER} date 2> /dev/null)"
+}
+
+APP_CONTAINER="$(app_container_exists ${PROJECT_ROOT})"
+
+if [ -z "${APP_CONTAINER}" ]; then
+  read -p "app service could not be found. Would you like to start the containers? [Y/n]: " ANSWER
+
+  if [ "${ANSWER}" == "n" ]; then
+    exit
+  fi
+
+  cd "${PROJECT_ROOT}"
+
+  ${COMPOSE[@]} up -d
+
+  APP_CONTAINER="$(app_container_exists ${PROJECT_ROOT})"
+
+  echo "Waiting for app service to come up..."
+
+  sleep 30
+elif [ -z "$(app_container_running ${APP_CONTAINER})" ]; then
+  read -p "app service is not running. Would you like to start the containers? [Y/n]: " ANSWER
+
+  if [ "${ANSWER}" == "n" ]; then
+    exit
+  fi
+
+  cd "${PROJECT_ROOT}"
+
+  ${COMPOSE[@]} up -d
+
+  echo "Waiting for app service to come up..."
+
+  sleep 30
+fi

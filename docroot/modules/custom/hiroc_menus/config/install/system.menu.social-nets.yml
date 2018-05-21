@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: social-nets
+label: 'Social Nets'
+description: 'Social nets links'
+locked: false

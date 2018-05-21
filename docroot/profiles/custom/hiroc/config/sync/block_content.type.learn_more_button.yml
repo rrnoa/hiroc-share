@@ -1,0 +1,10 @@
+uuid: d764f1c8-4a74-44f7-ba66-11f204624e80
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LORCK6N0bSWHsDC7Zlaf2EZNV_XRLNmuXkwTBImFOeg
+id: learn_more_button
+label: 'Footer Top Bar Button'
+revision: 0
+description: 'Footer Top Bar Button'

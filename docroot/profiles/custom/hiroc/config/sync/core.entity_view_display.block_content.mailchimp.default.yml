@@ -1,0 +1,32 @@
+uuid: c27fb2da-d65d-45ab-bc21-f02bcd567502
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mailchimp
+    - field.field.block_content.mailchimp.body
+    - field.field.block_content.mailchimp.field_email
+  module:
+    - mailchimp_lists
+    - text
+id: block_content.mailchimp.default
+targetEntityType: block_content
+bundle: mailchimp
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_email:
+    weight: 1
+    label: above
+    settings:
+      show_interest_groups: false
+    third_party_settings: {  }
+    type: mailchimp_lists_subscribe_default
+    region: content
+hidden: {  }

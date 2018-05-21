@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Show project services logs.                                                  #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+cd "${PROJECT_ROOT}"
+
+${COMPOSE[@]} logs
+
+cd "${WORKING_DIR}"

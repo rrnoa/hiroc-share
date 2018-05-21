@@ -1,0 +1,22 @@
+uuid: 7c35d1bc-6ed9-4fd5-975b-584cb726e737
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hiroc2018
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: hiroc2018_messages
+theme: hiroc2018
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

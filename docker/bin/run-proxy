@@ -1,0 +1,77 @@
+#!/bin/bash
+##########################################################################
+# script to check if the jwilder proxy container is already running
+# and if the ngnix-proxy network exists
+# should be called before "docker-compose up -d"
+##########################################################################
+
+HTTP_PORTS=(80 8000 8080 8888 8008)
+HTTPS_PORTS=(443 444 4433 4444 4443)
+OPEN_HTTP_PORT=""
+OPEN_HTTPS_PORT=""
+
+# Checks if a port is being listened on or not.
+function test_port() {
+  local PORT="${1}"
+  nc -z 127.0.0.1 $PORT 2> /dev/null || echo "no"
+}
+
+# Check if we need to create the network.
+if [ ! "$(docker network ls | grep nginx-proxy)" ]; then
+  echo "Creating nginx-proxy network ..."
+  docker network create nginx-proxy
+else
+  echo "nginx-proxy network exists."
+fi
+
+# Find open http port.
+for port in "${HTTP_PORTS[@]}"
+do
+  PORT_OPEN="$(test_port $port)"
+  if ! [ -z "${PORT_OPEN}" ]; then
+    OPEN_HTTP_PORT=$port
+    break
+  fi
+done
+
+# Find open https port.
+for port in "${HTTPS_PORTS[@]}"
+do
+  PORT_OPEN="$(test_port $port)"
+  if ! [ -z "${PORT_OPEN}" ]; then
+    OPEN_HTTPS_PORT=$port
+    break
+  fi
+done
+
+# Startup nginx-proxy.
+if [ ! "$(docker ps | grep nginx-proxy)" ]; then
+  # Make sure we can bind to an http/https port.
+  if [ -z "${OPEN_HTTP_PORT}" ] || [ -z "${OPEN_HTTPS_PORT}" ]; then
+    echo "No ports found to use with nginx-proxy container."
+    echo "Try to open one of the following http ports:"
+    (IFS=,; echo "${HTTP_PORTS[*]}")
+    echo "and one of the following https ports:"
+    (IFS=,; echo "${HTTPS_PORTS[*]}")
+  else
+    if [ "$(docker ps -aq -f name=nginx-proxy)" ]; then
+      # Cleanup.
+      echo "Cleaning..."
+      docker rm nginx-proxy
+    fi
+    # Run container in the global network to be shared by different projects.
+    echo "Running Nginx Proxy in global nginx-proxy network..."
+
+    if [ -d ~/certs ]; then
+      docker run -d --name nginx-proxy -p $OPEN_HTTP_PORT:80 -p $OPEN_HTTPS_PORT:443 --network=nginx-proxy -v ~/certs:/etc/nginx/certs -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+    else
+      echo "No ~/certs directory found. Starting nginx-proxy without HTTPS exposed."
+      echo "To expose HTTPS, create a ~/certs directory and generate a self-signed cert matching the host name."
+      echo "If your site is local.test-site.com your certs directory should have a local.test-site.com.crt and a local.test-site.com.key"
+      echo "After doing the steps above, run 'dockerbin restart-proxy'"
+      docker run -d --name nginx-proxy -p $OPEN_HTTP_PORT:80 --network=nginx-proxy -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+    fi
+  fi
+else
+  echo "Nginx Proxy already running."
+fi

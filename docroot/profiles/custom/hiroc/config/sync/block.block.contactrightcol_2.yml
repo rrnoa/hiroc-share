@@ -1,0 +1,25 @@
+uuid: b66d2005-bcdd-40ce-98de-fd5ebdc62b98
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: contactrightcol_2
+theme: hiroc2018
+region: footer_contact_right
+weight: 0
+provider: null
+plugin: 'block_content:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+settings:
+  id: 'block_content:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+  label: 'Contact Right Col'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

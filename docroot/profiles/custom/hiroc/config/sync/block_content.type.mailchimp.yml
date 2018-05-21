@@ -1,0 +1,8 @@
+uuid: f4551389-5463-4c8c-b58a-da314c7960bb
+langcode: en
+status: true
+dependencies: {  }
+id: mailchimp
+label: MailChimp
+revision: 0
+description: 'MailChimp subscription'

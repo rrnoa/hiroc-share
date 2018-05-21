@@ -1,0 +1,29 @@
+uuid: 89e837bd-d60c-4713-84df-ea7407b5e40e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.learn_more_button
+    - field.field.block_content.learn_more_button.field_learn_more
+  module:
+    - link
+_core:
+  default_config_hash: VX6qW2MbA6o2p3z3eQKwwL1qC9rLYIgyJmmOuRdCmhA
+id: block_content.learn_more_button.default
+targetEntityType: block_content
+bundle: learn_more_button
+mode: default
+content:
+  field_learn_more:
+    weight: 0
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

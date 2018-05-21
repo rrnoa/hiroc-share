@@ -1,0 +1,27 @@
+uuid: c695424f-2cba-4061-961a-e84cff851d83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_image.field_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.hero_image
+  module:
+    - image
+id: paragraph.hero_image.default
+targetEntityType: paragraph
+bundle: hero_image
+mode: default
+content:
+  field_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

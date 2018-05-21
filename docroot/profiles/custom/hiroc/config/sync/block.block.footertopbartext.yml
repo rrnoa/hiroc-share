@@ -1,0 +1,25 @@
+uuid: a0279b9e-c4d9-4f49-af4d-7af85b73ab43
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:footer_toptext:02909b6c-30e7-4e4b-9692-ec068dceac8f'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: footertopbartext
+theme: hiroc2018
+region: footer_topbar_text
+weight: 0
+provider: null
+plugin: 'block_content:02909b6c-30e7-4e4b-9692-ec068dceac8f'
+settings:
+  id: 'block_content:02909b6c-30e7-4e4b-9692-ec068dceac8f'
+  label: 'Footer Top Bar text'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

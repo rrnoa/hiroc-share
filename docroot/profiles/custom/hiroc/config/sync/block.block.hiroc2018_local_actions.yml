@@ -1,0 +1,20 @@
+uuid: 1a3a00cf-bbb4-4ee8-87c0-5a6e54ac76f6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hiroc2018
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: hiroc2018_local_actions
+theme: hiroc2018
+region: content
+weight: -9
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

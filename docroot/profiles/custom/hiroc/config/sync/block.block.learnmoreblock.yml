@@ -1,0 +1,25 @@
+uuid: d9f76c5e-698d-40b2-a391-b16cc0d86834
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:learn_more_button:1fd58266-ca89-4b47-a1a3-71fc4e8b7f14'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: learnmoreblock
+theme: hiroc2018
+region: navigation
+weight: 0
+provider: null
+plugin: 'block_content:1fd58266-ca89-4b47-a1a3-71fc4e8b7f14'
+settings:
+  id: 'block_content:1fd58266-ca89-4b47-a1a3-71fc4e8b7f14'
+  label: 'Learn more block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

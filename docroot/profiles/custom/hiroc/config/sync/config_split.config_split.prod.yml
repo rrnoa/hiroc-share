@@ -1,0 +1,15 @@
+uuid: aeb99973-47e6-4326-9790-2429c2138dc0
+langcode: en
+status: true
+dependencies: {  }
+id: prod
+label: prod
+folder: profiles/custom/hiroc/config/environments/prod
+module:
+  syslog: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

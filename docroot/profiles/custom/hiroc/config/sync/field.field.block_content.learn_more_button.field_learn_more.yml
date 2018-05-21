@@ -1,0 +1,30 @@
+uuid: 3f3eb0bb-5b71-447d-bdd6-21074e4caabd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.learn_more_button
+    - field.storage.block_content.field_learn_more
+  module:
+    - link
+_core:
+  default_config_hash: Edw6RtPJFRH0cU-qcxbh7Qx7F9m8OqBaIyKmk48DSJg
+id: block_content.learn_more_button.field_learn_more
+field_name: field_learn_more
+entity_type: block_content
+bundle: learn_more_button
+label: 'Learn more'
+description: 'Learn more button'
+required: false
+translatable: false
+default_value:
+  -
+    attributes: {  }
+    uri: 'internal:/'
+    title: 'Learn more'
+    options: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

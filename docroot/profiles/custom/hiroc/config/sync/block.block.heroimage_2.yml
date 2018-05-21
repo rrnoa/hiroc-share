@@ -1,0 +1,25 @@
+uuid: 135cc926-9d02-4612-b1c7-28381fc2721d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero_image:99059921-d2f4-430c-87de-e46ed13607f3'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: heroimage_2
+theme: hiroc2018
+region: top_image_hero
+weight: 0
+provider: null
+plugin: 'block_content:99059921-d2f4-430c-87de-e46ed13607f3'
+settings:
+  id: 'block_content:99059921-d2f4-430c-87de-e46ed13607f3'
+  label: 'Hero Image'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

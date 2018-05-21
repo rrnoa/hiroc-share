@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Turn XDebug off.                                                             #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/get-app-container
+
+docker exec -it "${APP_CONTAINER}" mv /etc/php/7.1/fpm/conf.d/20-xdebug.ini /20-xdebug.ini
+docker exec -it "${APP_CONTAINER}" service php7.1-fpm restart

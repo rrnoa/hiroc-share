@@ -1,0 +1,8 @@
+uuid: cab6ee33-e56a-4bc4-8dad-8e472297bca4
+langcode: en
+status: true
+dependencies: {  }
+id: hero_image
+label: 'Hero Image'
+revision: 0
+description: 'Page Hero Image'

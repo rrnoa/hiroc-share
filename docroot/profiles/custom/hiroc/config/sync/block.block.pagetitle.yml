@@ -1,0 +1,18 @@
+uuid: ebafd303-c5d3-4849-9e50-f02fb1755c40
+langcode: en
+status: false
+dependencies:
+  theme:
+    - hiroc2018
+id: pagetitle
+theme: hiroc2018
+region: navigation
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

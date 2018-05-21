@@ -1,0 +1,22 @@
+uuid: c57c4777-7843-4008-b89d-97833b45d3a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - hiroc2018
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: hiroc2018_help
+theme: hiroc2018
+region: content
+weight: -9
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

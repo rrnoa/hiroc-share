@@ -1,0 +1,22 @@
+uuid: 2be714c1-6541-447d-8425-3b78c7119521
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hiroc2018
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: hiroc2018_local_tasks
+theme: hiroc2018
+region: content
+weight: -9
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

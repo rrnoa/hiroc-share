@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Import database to MySQL container.                                          #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/get-mysql-container
+
+DROP_AND_CREATE="DROP DATABASE IF EXISTS $DB_DATABASE;CREATE DATABASE $DB_DATABASE;GRANT ALL PRIVILEGES ON *.* TO '$DB_USERNAME'@'%' WITH GRANT OPTION;"
+docker exec -it "${MYSQL_CONTAINER}" bash -c "echo \"$DROP_AND_CREATE\" > /prepare_for_import.sql"
+docker exec -it "${MYSQL_CONTAINER}" bash -c "mysql -u $DB_USERNAME --password=$DB_PASSWORD < /prepare_for_import.sql"
+docker exec -it "${MYSQL_CONTAINER}" bash -c "rm /prepare_for_import.sql"
+docker exec -i "${MYSQL_CONTAINER}" mysql -u $DB_USERNAME --password=$DB_PASSWORD $DB_DATABASE < $1

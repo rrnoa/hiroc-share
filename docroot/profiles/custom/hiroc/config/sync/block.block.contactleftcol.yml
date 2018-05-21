@@ -1,0 +1,25 @@
+uuid: 98d1d18b-1f3d-4d93-b99a-d3d43d26d55a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a9bc31e1-9ba8-41c1-becd-c38ab34f0b4c'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: contactleftcol
+theme: hiroc2018
+region: navigation
+weight: 0
+provider: null
+plugin: 'block_content:a9bc31e1-9ba8-41c1-becd-c38ab34f0b4c'
+settings:
+  id: 'block_content:a9bc31e1-9ba8-41c1-becd-c38ab34f0b4c'
+  label: 'Contact Left Col'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

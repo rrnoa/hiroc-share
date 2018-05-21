@@ -1,0 +1,9 @@
+uuid: 545db3ce-2128-4da6-909d-c2c9f0ca5bbc
+langcode: en
+status: true
+dependencies: {  }
+id: hero_image
+label: 'Hero Image'
+icon_uuid: null
+description: 'Page Hero Image'
+behavior_plugins: {  }

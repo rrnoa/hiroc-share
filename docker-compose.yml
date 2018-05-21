@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+  app:
+    build: ./docker/services/app
+    ports:
+      - "32808:8080"
+    links:
+      - mysql:database
+      - mailhog:mailhog
+    environment:
+      VIRTUAL_HOST: local.hiroc.com
+      HTTPS_METHOD: noredirect
+    networks:
+      - default
+      - external-nginx-proxy
+    volumes:
+      # Files to add to the volume.
+      - ./composer.json:/var/www/html/composer.json:delegated
+      - ./composer.lock:/var/www/html/composer.lock:delegated
+      - ./load.environment.php:/var/www/html/load.environment.php:cached
+      - ./phpunit.xml.dist:/var/www/html/phpunit.xml.dist:cached
+      - ./phpcs.xml.dist:/var/www/html/phpcs.xml.dist:cached
+      # Directories to add to the volume.
+      - ./private:/var/www/html/private:delegated
+      - ./drush:/var/www/html/drush:delegated
+      - ./scripts:/var/www/html/scripts:cached
+      - ./docroot/profiles/custom:/var/www/html/docroot/profiles/custom:cached
+      - ./docroot/modules/custom:/var/www/html/docroot/modules/custom:cached
+      - ./docroot/themes/custom:/var/www/html/docroot/themes/custom:cached
+      - ./docroot/sites/default:/var/www/html/docroot/sites/default:cached
+  mysql:
+    build: ./docker/services/mysql
+    hostname: mysql
+    networks:
+      - default
+      - external-nginx-proxy
+    volumes:
+      - hiroc-mysql:/var/lib/mysql
+    ports:
+      - "3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql:database
+    environment:
+      VIRTUAL_HOST: local.hirocdb.com
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_PASSWORD}
+      PMA_HOST: database
+    networks:
+      - default
+      - external-nginx-proxy
+  mailhog:
+    image: mailhog/mailhog:latest
+    networks:
+      - default
+      - external-nginx-proxy
+    ports:
+      - "1025"
+      - "8025"
+
+volumes:
+  hiroc-mysql:
+
+networks:
+  external-nginx-proxy:
+    external:
+      name: nginx-proxy

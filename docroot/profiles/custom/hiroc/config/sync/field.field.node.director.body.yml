@@ -1,0 +1,22 @@
+uuid: 9b48be19-3cdf-456b-9ea4-7de437cde15b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.director
+  module:
+    - text
+id: node.director.body
+field_name: body
+entity_type: node
+bundle: director
+label: Body
+description: 'Description about the director'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

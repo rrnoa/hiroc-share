@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# Stop project services.                                                       #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+SCRIPT_PATH="$(dirname ${0})"
+SCRIPT_PATH="$(cd "${SCRIPT_PATH}" && pwd)"
+. $SCRIPT_PATH/set-variables
+
+cd "${PROJECT_ROOT}"
+
+${COMPOSE[@]} down
+
+if [ "$DOCKER_SYNC" != 0 ]; then
+  docker-sync stop
+  docker-sync clean
+fi
+
+cd "${WORKING_DIR}"

@@ -1,0 +1,10 @@
+uuid: d7aa9d41-af08-4066-ac3e-ec1ae43faef7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4Bqsk0g5YLB_hVX52hRFKb9bWh5wz-bGZL7ul-QzTBw
+id: social-nets
+label: 'Social Nets'
+description: 'Social nets links'
+locked: false

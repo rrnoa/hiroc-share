@@ -1,0 +1,25 @@
+uuid: 4aeecc6c-4b9f-46e6-bfd1-6424d4a84790
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+  module:
+    - block_content
+  theme:
+    - hiroc2018
+id: contactcol2
+theme: hiroc2018
+region: navigation
+weight: 0
+provider: null
+plugin: 'block_content:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+settings:
+  id: 'block_content:979b70f8-f6f0-48fe-b262-e8a3f73c5f03'
+  label: 'Contact Col 2'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

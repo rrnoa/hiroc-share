@@ -1,0 +1,9 @@
+name: 'Hiroc: Content'
+description: Imports the content for Hiroc.
+type: module
+package: 'Hiroc'
+core: '8.x'
+dependencies:
+  - default_content:default_content
+  - link:link
+

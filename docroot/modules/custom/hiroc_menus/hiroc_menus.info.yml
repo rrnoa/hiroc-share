@@ -1,0 +1,10 @@
+name: 'Hiroc: menus'
+description: Imports the content Menu.
+type: module
+package: 'Hiroc'
+core: '8.x'
+dependencies:
+  - default_content:default_content
+  - simplify_menu:simplify_menu
+  - drupal:menu_link_content
+

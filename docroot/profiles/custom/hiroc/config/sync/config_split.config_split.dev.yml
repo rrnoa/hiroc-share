@@ -1,0 +1,19 @@
+uuid: 890b4f9e-2c36-4dcc-9ff3-a99709f6fa6a
+langcode: en
+status: true
+dependencies: {  }
+id: dev
+label: dev
+folder: profiles/custom/hiroc/config/environments/dev
+module:
+  devel: 0
+  devel_generate: 0
+theme: {  }
+blacklist:
+  - devel.settings
+  - devel.toolbar.settings
+  - system.menu.devel
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

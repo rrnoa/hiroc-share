@@ -1,0 +1,33 @@
+uuid: d9934f70-abd5-4138-8486-043283e3690d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mailchimp
+    - field.storage.block_content.field_email
+  module:
+    - mailchimp_lists
+id: block_content.mailchimp.field_email
+field_name: field_email
+entity_type: block_content
+bundle: mailchimp
+label: Email
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value:
+      subscribe: 1
+    subscribe: null
+    interest_groups: null
+default_value_callback: ''
+settings:
+  subscribe_checkbox_label: Subscribe
+  show_interest_groups: 0
+  hide_subscribe_checkbox: 0
+  interest_groups_hidden: 0
+  interest_groups_label: ''
+  merge_fields: {  }
+  unsubscribe_on_delete: 0
+field_type: mailchimp_lists_subscription

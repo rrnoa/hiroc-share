@@ -1,0 +1,17 @@
+uuid: 72d78268-1dd4-49c3-b140-aa8a1ae73059
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Director
+type: director
+description: 'Board of Directors'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
