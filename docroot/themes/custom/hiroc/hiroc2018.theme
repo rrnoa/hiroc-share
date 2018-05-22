@@ -13,3 +13,9 @@ function hiroc2018_preprocess_field(&$variables, $hook) {
     $variables['items'][0]['content']['#options']['attributes']['class'][] = 'btn btn-light';
   }
 }
+
+function hiroc2018_preprocess_image(&$vars)
+{
+    $vars['attributes']['class'][] = 'img-responsive';
+    // http://getbootstrap.com/css/#overview-responsive-images
+}
